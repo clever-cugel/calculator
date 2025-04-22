@@ -1,0 +1,88 @@
+body {
+    background-color: #2E3440;
+    display:flex;
+    justify-content: center;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    border: solid white 2px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+    width: 500px;
+    background-color: black;
+}
+
+.output {
+    display:flex;
+    align-items: flex-start;
+    background-color: black;
+    align-self: stretch;
+    border: solid white 2px;
+    height: 90px;
+    padding: 10px;
+    color: white;
+    font-size: 35px;
+}
+
+.controls {
+    display: flex;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.digits {
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    width: 160px;
+    gap: 5px;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+#last {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: center;
+}
+
+.digits button {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid red;
+    aspect-ratio: 1/1;
+    height: 50px;
+    color:white;
+    background-color: black;
+    font-size: 35px;
+}
+
+.operators {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    width: 145px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-right: 0;
+    margin-left: auto;
+}
+
+.operators button {
+    border-radius: 5px;
+    border: 1px solid red;
+    height: 100px;
+    width: 70px;
+    background-color: black;
+    color: white;
+    font-size: 45px;
+}
+
