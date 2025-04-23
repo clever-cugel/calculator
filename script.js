@@ -30,6 +30,7 @@ function divide(num1, num2) {
     num1 = +num1;
     num2 = +num2;
     let answer = num1 / num2;
+    answer = answer.toFixed(2);
     return answer + '';
 }
 
@@ -192,3 +193,7 @@ Array.from(operButtons).map((btn) => {
         });
     }
 });
+
+//still need to round long decimals
+//still need to be able to do like so: 40 + 939 * 4;
+//AND it's going to have to follow PEMDAS
