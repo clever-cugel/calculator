@@ -141,10 +141,10 @@ Array.from(numButtons).map((btn) => {
         btn.addEventListener('click', () => {
             if (opFlag === 0) {
                 num1 += '0';
-                output.textContent += '0';
             } else {
                 num2 += '0';
             }
+            output.textContent += '0';
         });
     }
 });
@@ -177,11 +177,20 @@ Array.from(operButtons).map((btn) => {
         });
     } else if (btn.id === '=') {
         btn.addEventListener('click', () => {
-            num1 = operate(num1, num2, operator);
-            output.textContent = num1;
-            num2 = '';
-            operator = '';
-            opFlag = 0;
+            if (operator === '/' && num2 === '0') {
+                alert('NO!');
+                operator = '';
+                output.textContent = '';
+                opFlag = 0;
+                num1 = '';
+                num2 = '';
+            } else {
+                num1 = operate(num1, num2, operator);
+                output.textContent = num1;
+                num2 = '';
+                operator = '';
+                opFlag = 0;
+            }
         });
     } else {
         btn.addEventListener('click', () => {
@@ -197,3 +206,4 @@ Array.from(operButtons).map((btn) => {
 //still need to round long decimals
 //still need to be able to do like so: 40 + 939 * 4;
 //AND it's going to have to follow PEMDAS
+//also must make checks for incomplete entries
