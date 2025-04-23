@@ -8,25 +8,29 @@ let operator = '';
 function add(num1, num2) {
     num1 = +num1;
     num2 = +num2;
-    return num1 + num2;
+    let answer = num1 + num2;
+    return answer + '';
 }
 
 function subtract(num1, num2) {
     num1 = +num1;
     num2 = +num2;
-    return num1 - num2;
+    let answer = num1 - num2;
+    return answer + '';
 }
 
 function multiply(num1, num2) {
     num1 = +num1;
     num2 = +num2;
-    return num1 * num2;
+    let answer = num1 * num2;
+    return answer + '';
 }
 
 function divide(num1, num2) {
     num1 = +num1;
     num2 = +num2;
-    return num1 / num2;
+    let answer = num1 / num2;
+    return answer + '';
 }
 
 function operate(num1, num2, operator) {
@@ -172,8 +176,10 @@ Array.from(operButtons).map((btn) => {
         });
     } else if (btn.id === '=') {
         btn.addEventListener('click', () => {
-            operator = '=';
-            operate(num1, num2, operator);
+            num1 = operate(num1, num2, operator);
+            output.textContent = num1;
+            num2 = '';
+            operator = '';
             opFlag = 0;
         });
     } else {
