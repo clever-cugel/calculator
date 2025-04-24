@@ -3,8 +3,6 @@ let num2 = '';
 let opFlag = 0;
 let operator = '';
 
-//i will need to make the text add to a p tag inside the output so it can flex wrap
-
 function add(num1, num2) {
     num1 = +num1;
     num2 = +num2;
@@ -45,6 +43,18 @@ function operate(num1, num2, operator) {
         return multiply(num1, num2);
     }
 }
+
+// function checkInvalid(num1, num2) {
+//     let numCopy;
+//     let num2Copy;
+//     numCopy = +num1;
+//     num2Copy = +num2;
+//     if (numCopy === numCopy && num2Copy === num2Copy) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
 
 function clear() {
 
@@ -184,6 +194,13 @@ Array.from(operButtons).map((btn) => {
                 opFlag = 0;
                 num1 = '';
                 num2 = '';
+            } else if (num1 === '' || num2 === '') {
+                alert('Please input two arguments');
+                operator = ''
+                output.textContent = '';
+                opFlag = 0;
+                num1 = '';
+                num2 = '';
             } else {
                 num1 = operate(num1, num2, operator);
                 output.textContent = num1;
@@ -203,7 +220,6 @@ Array.from(operButtons).map((btn) => {
     }
 });
 
-//still need to round long decimals
 //still need to be able to do like so: 40 + 939 * 4;
 //AND it's going to have to follow PEMDAS
 //also must make checks for incomplete entries
