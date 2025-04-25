@@ -5,6 +5,8 @@ let operator = '';
 let dividedByZero = 0;
 let twoOperands = 0;
 let justEqualed = 0;
+let num1Dcheck = 0;
+let num2Dcheck = 0;
 
 function add(num1, num2) {
     num1 = +num1;
@@ -70,7 +72,6 @@ function equalLogic() {
         num2 = '';
         operator = '';
         opFlag = 0;
-        justEqualed = 1;
     }
 }
 
@@ -272,11 +273,32 @@ Array.from(numButtons).map((btn) => {
                 justEqualed = 0;
             }
             if (opFlag === 0) {
-                num1 += '.';
+                for (let i = 0; i < num1.length; i++) {
+                    if (num1[i] === '.') {
+                        num1Dcheck = 1;
+                    }
+                }
+                if (num1Dcheck === 0) {
+                    num1 += '.';
+                    output.textContent += '.';
+                } else {
+                    alert('That makes no sense');
+                    num1Dcheck = 0;
+                }
             } else {
-                num2 += '.';
+                for (let i = 0; i < num2.length; i++) {
+                    if (num2[i] === '.') {
+                        num2Dcheck = 1;
+                    }
+                }
+                if (num2Dcheck === 0) {
+                    num2 += '.';
+                    output.textContent += '.';
+                } else {
+                    alert('That makes no sense')
+                    num2Dcheck = 0;
+                }
             }
-            output.textContent += '.';
         });
     }
 });
@@ -376,7 +398,10 @@ Array.from(operButtons).map((btn) => {
             }
         });
     } else if (btn.id === '=') {
-        btn.addEventListener('click', equalLogic);
+        btn.addEventListener('click', () => {
+            equalLogic();
+            justEqualed = 1;
+        });
     } else {
         btn.addEventListener('click', () => {
             operator = '';
@@ -387,8 +412,3 @@ Array.from(operButtons).map((btn) => {
         });
     }
 });
-
-//extra cred:
-//enter floats so add a decimal button
-//---
-//now need to take into account multiple . in string
