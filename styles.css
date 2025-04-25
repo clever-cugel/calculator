@@ -59,6 +59,7 @@ body {
     display: flex;
     flex-basis: 100%;
     justify-content: center;
+    gap: 5px;
 }
 
 .digits button {

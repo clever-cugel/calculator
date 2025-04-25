@@ -242,7 +242,7 @@ Array.from(numButtons).map((btn) => {
             }
             output.textContent += '9';
         });
-    } else {
+    } else if (btn.id === '0') {
         btn.addEventListener('click', () => {
             if (justEqualed === 1) {
                 num1 = '';
@@ -259,6 +259,24 @@ Array.from(numButtons).map((btn) => {
                 num2 += '0';
             }
             output.textContent += '0';
+        });
+    } else {
+        btn.addEventListener('click', () => {
+            if (justEqualed === 1) {
+                num1 = '';
+                num2 = '';
+                output.textContent = '';
+                opFlag = 0;
+                dividedByZero = 0;
+                twoOperands = 0;
+                justEqualed = 0;
+            }
+            if (opFlag === 0) {
+                num1 += '.';
+            } else {
+                num2 += '.';
+            }
+            output.textContent += '.';
         });
     }
 });
@@ -369,3 +387,8 @@ Array.from(operButtons).map((btn) => {
         });
     }
 });
+
+//extra cred:
+//enter floats so add a decimal button
+//---
+//now need to take into account multiple . in string
