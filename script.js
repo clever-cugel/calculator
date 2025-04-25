@@ -183,34 +183,55 @@ const operButtons = document.querySelectorAll('.operators button');
 Array.from(operButtons).map((btn) => {
     if (btn.id === '/') {
         btn.addEventListener('click', () => {
-            operator = '/';
-            output.textContent += ' / ';
             if (opFlag === 1) {
                 equalLogic();
                 operator = '/';
                 output.textContent += ' / ';
                 opFlag = 1;
             } else {
+                operator = '/';
+                output.textContent += ' / ';
                 opFlag = 1;
             }
         });
     } else if (btn.id === '*') {
         btn.addEventListener('click', () => {
-            operator = '*';
-            output.textContent += ' * ';
-            opFlag = 1;
+            if (opFlag === 1) {
+                equalLogic();
+                operator = '*';
+                output.textContent += ' * ';
+                opFlag = 1;
+            } else {
+                operator = '*';
+                output.textContent += ' * ';
+                opFlag = 1;
+            }
         });
     } else if (btn.id === '-') {
         btn.addEventListener('click', () => {
-            operator = '-';
-            output.textContent += ' - ';
-            opFlag = 1;
+            if (opFlag === 1) {
+                equalLogic();
+                operator = '-';
+                output.textContent += ' - ';
+                opFlag = 1;
+            } else {
+                operator = '-';
+                output.textContent += ' - ';
+                opFlag = 1;
+            }
         });
     } else if (btn.id === '+') {
         btn.addEventListener('click', () => {
-            operator = '+';
-            output.textContent += ' + ';
-            opFlag = 1;
+            if (opFlag === 1) {
+                equalLogic();
+                operator = '+';
+                output.textContent += ' + ';
+                opFlag = 1;
+            } else {
+                operator = '+';
+                output.textContent += ' + ';
+                opFlag = 1;
+            }
         });
     } else if (btn.id === '=') {
         btn.addEventListener('click', equalLogic);
