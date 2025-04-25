@@ -4,6 +4,7 @@ let opFlag = 0;
 let operator = '';
 let dividedByZero = 0;
 let twoOperands = 0;
+let justEqualed = 0;
 
 function add(num1, num2) {
     num1 = +num1;
@@ -69,6 +70,7 @@ function equalLogic() {
         num2 = '';
         operator = '';
         opFlag = 0;
+        justEqualed = 1;
     }
 }
 
@@ -79,6 +81,15 @@ const numButtons = document.querySelectorAll('.digits button');
 Array.from(numButtons).map((btn) => {
     if (btn.id === '1') {
         btn.addEventListener('click', () => {
+            if (justEqualed === 1) {
+                num1 = '';
+                num2 = '';
+                output.textContent = '';
+                opFlag = 0;
+                dividedByZero = 0;
+                twoOperands = 0;
+                justEqualed = 0;
+            }
             if (opFlag === 0) {
                 num1 += '1';
             } else {
@@ -88,6 +99,15 @@ Array.from(numButtons).map((btn) => {
         });
     } else if (btn.id === '2') {
         btn.addEventListener('click', () => {
+            if (justEqualed === 1) {
+                num1 = '';
+                num2 = '';
+                output.textContent = '';
+                opFlag = 0;
+                dividedByZero = 0;
+                twoOperands = 0;
+                justEqualed = 0;
+            }
             if (opFlag === 0) {
                 num1 += '2';
             } else {
@@ -97,6 +117,15 @@ Array.from(numButtons).map((btn) => {
         });
     } else if (btn.id === '3') {
         btn.addEventListener('click', () => {
+            if (justEqualed === 1) {
+                num1 = '';
+                num2 = '';
+                output.textContent = '';
+                opFlag = 0;
+                dividedByZero = 0;
+                twoOperands = 0;
+                justEqualed = 0;
+            }
             if (opFlag === 0) {
                 num1 += '3';
                 
@@ -107,6 +136,15 @@ Array.from(numButtons).map((btn) => {
         });
     } else if (btn.id === '4') {
         btn.addEventListener('click', () => {
+            if (justEqualed === 1) {
+                num1 = '';
+                num2 = '';
+                output.textContent = '';
+                opFlag = 0;
+                dividedByZero = 0;
+                twoOperands = 0;
+                justEqualed = 0;
+            }
             if (opFlag === 0) {
                 num1 += '4';
             } else {
@@ -116,6 +154,15 @@ Array.from(numButtons).map((btn) => {
         });
     } else if (btn.id === '5') {
         btn.addEventListener('click', () => {
+            if (justEqualed === 1) {
+                num1 = '';
+                num2 = '';
+                output.textContent = '';
+                opFlag = 0;
+                dividedByZero = 0;
+                twoOperands = 0;
+                justEqualed = 0;
+            }
             if (opFlag === 0) {
                 num1 += '5';
             } else {
@@ -125,6 +172,15 @@ Array.from(numButtons).map((btn) => {
         });
     } else if (btn.id === '6') {
         btn.addEventListener('click', () => {
+            if (justEqualed === 1) {
+                num1 = '';
+                num2 = '';
+                output.textContent = '';
+                opFlag = 0;
+                dividedByZero = 0;
+                twoOperands = 0;
+                justEqualed = 0;
+            }
             if (opFlag === 0) {
                 num1 += '6';
             } else {
@@ -134,6 +190,15 @@ Array.from(numButtons).map((btn) => {
         });
     } else if (btn.id === '7') {
         btn.addEventListener('click', () => {
+            if (justEqualed === 1) {
+                num1 = '';
+                num2 = '';
+                output.textContent = '';
+                opFlag = 0;
+                dividedByZero = 0;
+                twoOperands = 0;
+                justEqualed = 0;
+            }
             if (opFlag === 0) {
                 num1 += '7';
             } else {
@@ -143,6 +208,15 @@ Array.from(numButtons).map((btn) => {
         });
     } else if (btn.id === '8') {
         btn.addEventListener('click', () => {
+            if (justEqualed === 1) {
+                num1 = '';
+                num2 = '';
+                output.textContent = '';
+                opFlag = 0;
+                dividedByZero = 0;
+                twoOperands = 0;
+                justEqualed = 0;
+            }
             if (opFlag === 0) {
                 num1 += '8';
             } else {
@@ -152,6 +226,15 @@ Array.from(numButtons).map((btn) => {
         });
     } else if (btn.id === '9') {
         btn.addEventListener('click', () => {
+            if (justEqualed === 1) {
+                num1 = '';
+                num2 = '';
+                output.textContent = '';
+                opFlag = 0;
+                dividedByZero = 0;
+                twoOperands = 0;
+                justEqualed = 0;
+            }
             if (opFlag === 0) {
                 num1 += '9';
             } else {
@@ -161,6 +244,15 @@ Array.from(numButtons).map((btn) => {
         });
     } else {
         btn.addEventListener('click', () => {
+            if (justEqualed === 1) {
+                num1 = '';
+                num2 = '';
+                output.textContent = '';
+                opFlag = 0;
+                dividedByZero = 0;
+                twoOperands = 0;
+                justEqualed = 0;
+            }
             if (opFlag === 0) {
                 num1 += '0';
             } else {
