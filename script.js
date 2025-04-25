@@ -2,6 +2,8 @@ let num1 = '';
 let num2 = '';
 let opFlag = 0;
 let operator = '';
+let dividedByZero = 0;
+let twoOperands = 0;
 
 function add(num1, num2) {
     num1 = +num1;
@@ -44,18 +46,6 @@ function operate(num1, num2, operator) {
     }
 }
 
-// function checkInvalid(num1, num2) {
-//     let numCopy;
-//     let num2Copy;
-//     numCopy = +num1;
-//     num2Copy = +num2;
-//     if (numCopy === numCopy && num2Copy === num2Copy) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
-
 function equalLogic() {
     if (operator === '/' && num2 === '0') {
         alert('NO!');
@@ -64,6 +54,7 @@ function equalLogic() {
         opFlag = 0;
         num1 = '';
         num2 = '';
+        dividedByZero = 1;
     } else if (num1 === '' || num2 === '') {
         alert('Please input two arguments');
         operator = ''
@@ -71,6 +62,7 @@ function equalLogic() {
         opFlag = 0;
         num1 = '';
         num2 = '';
+        twoOperands = 1;
     } else {
         num1 = operate(num1, num2, operator);
         output.textContent = num1;
@@ -185,9 +177,19 @@ Array.from(operButtons).map((btn) => {
         btn.addEventListener('click', () => {
             if (opFlag === 1) {
                 equalLogic();
-                operator = '/';
-                output.textContent += ' / ';
-                opFlag = 1;
+                if (dividedByZero === 0 && twoOperands === 0) {
+                    operator = '/';
+                    output.textContent += ' / ';
+                    opFlag = 1;
+                } else {
+                    num1 = '';
+                    num2 = '';
+                    operator = '';
+                    opFlag = 0;
+                    dividedByZero = 0;
+                    twoOperands = 0;
+                    output.textContent = '';
+                }
             } else {
                 operator = '/';
                 output.textContent += ' / ';
@@ -198,9 +200,19 @@ Array.from(operButtons).map((btn) => {
         btn.addEventListener('click', () => {
             if (opFlag === 1) {
                 equalLogic();
-                operator = '*';
-                output.textContent += ' * ';
-                opFlag = 1;
+                if (dividedByZero === 0 && twoOperands === 0) {
+                    operator = '*';
+                    output.textContent += ' * ';
+                    opFlag = 1;
+                } else {
+                    num1 = '';
+                    num2 = '';
+                    operator = '';
+                    opFlag = 0;
+                    dividedByZero = 0;
+                    twoOperands = 0;
+                    output.textContent = '';
+                }
             } else {
                 operator = '*';
                 output.textContent += ' * ';
@@ -211,9 +223,19 @@ Array.from(operButtons).map((btn) => {
         btn.addEventListener('click', () => {
             if (opFlag === 1) {
                 equalLogic();
-                operator = '-';
-                output.textContent += ' - ';
-                opFlag = 1;
+                if (dividedByZero === 0 && twoOperands === 0) {
+                    operator = '-';
+                    output.textContent += ' - ';
+                    opFlag = 1;
+                } else {
+                    num1 = '';
+                    num2 = '';
+                    operator = '';
+                    opFlag = 0;
+                    dividedByZero = 0;
+                    twoOperands = 0;
+                    output.textContent = '';
+                }
             } else {
                 operator = '-';
                 output.textContent += ' - ';
@@ -224,9 +246,19 @@ Array.from(operButtons).map((btn) => {
         btn.addEventListener('click', () => {
             if (opFlag === 1) {
                 equalLogic();
-                operator = '+';
-                output.textContent += ' + ';
-                opFlag = 1;
+                if (dividedByZero === 0 && twoOperands === 0) {
+                    operator = '+';
+                    output.textContent += ' + ';
+                    opFlag = 1;
+                } else {
+                    num1 = '';
+                    num2 = '';
+                    operator = '';
+                    opFlag = 0;
+                    dividedByZero = 0;
+                    twoOperands = 0;
+                    output.textContent = '';
+                }
             } else {
                 operator = '+';
                 output.textContent += ' + ';
