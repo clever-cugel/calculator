@@ -56,8 +56,28 @@ function operate(num1, num2, operator) {
 //     }
 // }
 
-function clear() {
-
+function equalLogic() {
+    if (operator === '/' && num2 === '0') {
+        alert('NO!');
+        operator = '';
+        output.textContent = '';
+        opFlag = 0;
+        num1 = '';
+        num2 = '';
+    } else if (num1 === '' || num2 === '') {
+        alert('Please input two arguments');
+        operator = ''
+        output.textContent = '';
+        opFlag = 0;
+        num1 = '';
+        num2 = '';
+    } else {
+        num1 = operate(num1, num2, operator);
+        output.textContent = num1;
+        num2 = '';
+        operator = '';
+        opFlag = 0;
+    }
 }
 
 const output = document.querySelector('.output p');
@@ -165,7 +185,14 @@ Array.from(operButtons).map((btn) => {
         btn.addEventListener('click', () => {
             operator = '/';
             output.textContent += ' / ';
-            opFlag = 1;
+            if (opFlag === 1) {
+                equalLogic();
+                operator = '/';
+                output.textContent += ' / ';
+                opFlag = 1;
+            } else {
+                opFlag = 1;
+            }
         });
     } else if (btn.id === '*') {
         btn.addEventListener('click', () => {
@@ -186,29 +213,7 @@ Array.from(operButtons).map((btn) => {
             opFlag = 1;
         });
     } else if (btn.id === '=') {
-        btn.addEventListener('click', () => {
-            if (operator === '/' && num2 === '0') {
-                alert('NO!');
-                operator = '';
-                output.textContent = '';
-                opFlag = 0;
-                num1 = '';
-                num2 = '';
-            } else if (num1 === '' || num2 === '') {
-                alert('Please input two arguments');
-                operator = ''
-                output.textContent = '';
-                opFlag = 0;
-                num1 = '';
-                num2 = '';
-            } else {
-                num1 = operate(num1, num2, operator);
-                output.textContent = num1;
-                num2 = '';
-                operator = '';
-                opFlag = 0;
-            }
-        });
+        btn.addEventListener('click', equalLogic);
     } else {
         btn.addEventListener('click', () => {
             operator = '';
@@ -219,7 +224,3 @@ Array.from(operButtons).map((btn) => {
         });
     }
 });
-
-//still need to be able to do like so: 40 + 939 * 4;
-//AND it's going to have to follow PEMDAS
-//also must make checks for incomplete entries
